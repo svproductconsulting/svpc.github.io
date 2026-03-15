@@ -5,460 +5,379 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SV Product Consulting Inc. — AI Strategy & Agentic Workflow Design</title>
     <meta name="description" content="AI strategy consulting, agentic workflow design, and end-to-end implementation for forward-thinking teams.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
 
         :root {
-            --color-bg: #fafafa;
-            --color-surface: #ffffff;
-            --color-text: #1a1a2e;
-            --color-text-secondary: #555770;
-            --color-accent: #2d5be3;
-            --color-accent-hover: #1e44b8;
-            --color-border: #e8e8ef;
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --bg-dots: radial-gradient(#e2e8f0 1px, transparent 1px);
         }
 
         body {
-            font-family: var(--font);
-            color: var(--color-text);
-            background: var(--color-bg);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+            scroll-behavior: smooth;
+            background-color: #fff;
         }
 
-        /* Nav */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--color-border);
-            z-index: 100;
-            padding: 0 24px;
+        .font-serif {
+            font-family: 'Playfair Display', serif;
         }
 
-        .nav-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 64px;
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
         }
 
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--color-text);
-            text-decoration: none;
-            letter-spacing: -0.02em;
+        .hero-pattern {
+            background-image: var(--bg-dots);
+            background-size: 30px 30px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
+        .gradient-text {
+            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--color-text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
+        .card-glow {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #f1f5f9;
         }
 
-        .nav-links a:hover {
-            color: var(--color-accent);
+        .card-glow:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.12);
+            border-color: #3b82f640;
         }
 
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 24px 80px;
+        .ai-chip {
+            background: linear-gradient(90deg, #eff6ff 0%, #ffffff 100%);
+            border: 1px solid #dbeafe;
         }
 
-        .hero-content {
-            max-width: 760px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 .accent {
-            color: var(--color-accent);
-        }
-
-        .hero p {
-            font-size: clamp(1.05rem, 2vw, 1.25rem);
-            color: var(--color-text-secondary);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            background: var(--color-accent);
-            color: #fff;
-            text-decoration: none;
-            padding: 14px 36px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background 0.2s, transform 0.15s;
-        }
-
-        .hero-cta:hover {
-            background: var(--color-accent-hover);
-            transform: translateY(-1px);
-        }
-
-        /* Section base */
-        section {
-            padding: 100px 24px;
-        }
-
-        .section-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--color-accent);
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            color: var(--color-text-secondary);
-            font-size: 1.05rem;
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 56px;
-        }
-
-        /* Services */
-        .services {
-            background: var(--color-surface);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            padding: 0;
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            background: #eef2ff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: -0.01em;
-        }
-
-        .service-card p {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.65;
-        }
-
-        /* Clients */
-        .clients {
-            text-align: center;
-        }
-
-        .clients .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .client-card {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 32px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .client-card:hover {
-            border-color: #c8d0e8;
-            box-shadow: 0 4px 16px rgba(45, 91, 227, 0.06);
-        }
-
-        .client-logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        .client-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .client-card p {
-            color: var(--color-text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.55;
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--color-surface);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            text-align: center;
-        }
-
-        .contact .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-email {
-            display: inline-block;
-            font-size: 1.15rem;
-            color: var(--color-accent);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 14px 36px;
-            border: 2px solid var(--color-accent);
-            border-radius: 8px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .contact-email:hover {
-            background: var(--color-accent);
-            color: #fff;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 24px;
-            color: var(--color-text-secondary);
-            font-size: 0.85rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .nav-links {
-                gap: 20px;
-            }
-
-            section {
-                padding: 72px 20px;
-            }
-
-            .services-grid {
-                gap: 36px;
-            }
-
-            .clients-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
-
-            .client-card {
-                padding: 24px 16px;
-            }
+        .step-line::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 48px;
+            bottom: -16px;
+            width: 2px;
+            background: #e2e8f0;
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-blue-100 selection:text-blue-900">
 
-<nav>
-    <div class="nav-inner">
-        <a href="#" class="nav-logo">SVPC</a>
-        <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#clients">Clients</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white font-extrabold text-xl">SV</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold leading-none tracking-tight text-slate-900">Product Consulting</span>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1">AI & Strategy Labs</span>
+                    </div>
+                </div>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>AI Strategy &amp; <span class="accent">Agentic Workflow</span> Design</h1>
-        <p>We help companies navigate the AI landscape — from defining your AI strategy and designing agentic workflows to building and deploying intelligent systems that deliver real business value.</p>
-        <a href="#contact" class="hero-cta">Work With Us</a>
-    </div>
-</section>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#services" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="#process" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Process</a>
+                    <a href="#clients" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Clients</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-blue-700 transition-all shadow-md shadow-blue-200">
+                        Work With Us
+                    </a>
+                </div>
 
-<section class="services" id="services">
-    <div class="section-inner">
-        <p class="section-label">What We Do</p>
-        <h2 class="section-title">End-to-end AI consulting</h2>
-        <p class="section-subtitle">We partner with teams at every stage of AI adoption — from first exploration to production-grade agentic systems.</p>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">&#x1F9ED;</div>
-                <h3>AI Strategy</h3>
-                <p>Identify high-impact AI opportunities, build your roadmap, and define success metrics. We cut through the hype to find what actually moves the needle for your business.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">&#x1F916;</div>
-                <h3>Agentic Workflow Design</h3>
-                <p>Design autonomous agent architectures, multi-agent orchestration patterns, and human-in-the-loop systems that reliably execute complex tasks.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">&#x2699;&#xFE0F;</div>
-                <h3>Implementation</h3>
-                <p>Build production-ready AI systems — LLM integrations, RAG pipelines, tool-use frameworks, and custom agents — with robust evaluation and monitoring.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">&#x1F680;</div>
-                <h3>AI Enablement</h3>
-                <p>Upskill your team on prompt engineering, agentic patterns, and AI-native product thinking. We help organizations build lasting internal AI capabilities.</p>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-900">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<section class="clients" id="clients">
-    <div class="section-inner">
-        <p class="section-label">Trusted By</p>
-        <h2 class="section-title">Companies we've worked with</h2>
-        <p class="section-subtitle">From early-stage startups to Fortune 500 enterprises, we help teams ship AI that works.</p>
+    <!-- Hero Section -->
+    <section class="pt-40 pb-24 hero-pattern relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full ai-chip mb-8 shadow-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                    </span>
+                    <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Specializing in Agentic AI Systems</span>
+                </div>
 
-        <div class="clients-grid">
-            <div class="client-card">
-                <div class="client-logo" style="background: #4f46e5;">NX</div>
-                <h3>NovaTech</h3>
-                <p>Enterprise SaaS</p>
-            </div>
+                <h1 class="text-5xl lg:text-7xl font-serif leading-[1.1] text-slate-900 mb-8">
+                    AI Strategy & <br>
+                    <span class="gradient-text">Agentic Workflow Design.</span>
+                </h1>
 
-            <div class="client-card">
-                <div class="client-logo" style="background: #0891b2;">AP</div>
-                <h3>Apex Robotics</h3>
-                <p>Industrial Automation</p>
-            </div>
+                <p class="text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    We help companies navigate the AI landscape — from defining your AI strategy and designing agentic workflows to building and deploying intelligent systems that deliver real business value.
+                </p>
 
-            <div class="client-card">
-                <div class="client-logo" style="background: #059669;">CL</div>
-                <h3>Clearpath Health</h3>
-                <p>Healthcare Technology</p>
-            </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="#contact" class="w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl flex items-center justify-center gap-3">
+                        Work With Us
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto px-10 py-5 border-2 border-slate-200 text-slate-700 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center">
+                        Explore Services
+                    </a>
+                </div>
 
-            <div class="client-card">
-                <div class="client-logo" style="background: #d97706;">VT</div>
-                <h3>Vertex Labs</h3>
-                <p>Fintech</p>
-            </div>
-
-            <div class="client-card">
-                <div class="client-logo" style="background: #7c3aed;">SQ</div>
-                <h3>Synapse AI</h3>
-                <p>AI Infrastructure</p>
-            </div>
-
-            <div class="client-card">
-                <div class="client-logo" style="background: #e11d48;">OB</div>
-                <h3>Orbit Media</h3>
-                <p>Digital Media</p>
-            </div>
-
-            <div class="client-card">
-                <div class="client-logo" style="background: #1d4ed8;">PK</div>
-                <h3>Peakform</h3>
-                <p>Developer Tools</p>
-            </div>
-
-            <div class="client-card">
-                <div class="client-logo" style="background: #65a30d;">TF</div>
-                <h3>TerraFlow</h3>
-                <p>Climate Tech</p>
+                <div class="mt-20 pt-10 border-t border-slate-100 flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                    <div class="font-bold text-slate-400 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"/></svg>
+                        STRATEGY-FIRST
+                    </div>
+                    <div class="font-bold text-slate-400 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                        AI-NATIVE
+                    </div>
+                    <div class="font-bold text-slate-400 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+                        DATA-DRIVEN
+                    </div>
+                    <div class="font-bold text-slate-400 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        EXECUTION-PROVEN
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="contact" id="contact">
-    <div class="section-inner">
-        <p class="section-label">Get in Touch</p>
-        <h2 class="section-title">Ready to put AI to work?</h2>
-        <p class="section-subtitle">Whether you're exploring your first AI use case or scaling agentic systems across your organization, we'd love to hear from you.</p>
-        <a href="mailto:svproductconsulting@gmail.com" class="contact-email">svproductconsulting@gmail.com</a>
-    </div>
-</section>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20">
+                <div class="inline-block px-3 py-1 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest mb-6">What We Do</div>
+                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">End-to-End AI Consulting</h2>
+                <p class="text-slate-500 max-w-xl text-lg">We partner with teams at every stage of AI adoption — from first exploration to production-grade agentic systems.</p>
+            </div>
 
-<footer>
-    <p>&copy; 2026 SV Product Consulting Inc. All rights reserved.</p>
-</footer>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="p-8 rounded-3xl bg-white card-glow group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">AI Strategy</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Identify high-impact AI opportunities, build your roadmap, and define success metrics. We cut through the hype to find what actually moves the needle.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Planning & Vision</div>
+                </div>
 
+                <!-- Service 2 -->
+                <div class="p-8 rounded-3xl bg-slate-900 card-glow text-white">
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Agentic Workflow Design</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Design autonomous agent architectures, multi-agent orchestration patterns, and human-in-the-loop systems that reliably execute complex tasks.</p>
+                    <div class="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest">Innovation Labs</div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 rounded-3xl bg-white card-glow group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.194-.14 1.743"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Implementation</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Build production-ready AI systems — LLM integrations, RAG pipelines, tool-use frameworks, and custom agents with robust evaluation.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Execution</div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-8 rounded-3xl bg-white card-glow group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">AI Enablement</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Upskill your team on prompt engineering, agentic patterns, and AI-native product thinking. Build lasting internal AI capabilities.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Optimization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">Our Implementation Framework</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">A rigorous, repeatable process designed to take you from exploration to production-grade AI systems.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                <div class="relative flex gap-12 step-line">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold z-10">1</div>
+                    <div class="pb-12">
+                        <h4 class="text-xl font-bold mb-3">Discovery & Audit</h4>
+                        <p class="text-slate-600 leading-relaxed">We evaluate your existing workflows, data infrastructure, and team capabilities to identify where AI can create real, measurable value.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-12 step-line">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold z-10">2</div>
+                    <div class="pb-12">
+                        <h4 class="text-xl font-bold mb-3">Strategy & Architecture</h4>
+                        <p class="text-slate-600 leading-relaxed">Design your AI roadmap with prioritized use cases, agent architectures, and integration plans aligned to business objectives.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-12 step-line">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold z-10">3</div>
+                    <div class="pb-12">
+                        <h4 class="text-xl font-bold mb-3">Build & Deploy</h4>
+                        <p class="text-slate-600 leading-relaxed">We work alongside your engineering and product teams to implement, test, and ship AI systems — not just hand over a strategy deck.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex gap-12">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10">4</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-3">Evaluate & Iterate</h4>
+                        <p class="text-slate-600 leading-relaxed">Post-launch analysis measuring adoption, accuracy, and business impact — closing the feedback loop for continuous improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-block px-3 py-1 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest mb-6">Trusted By</div>
+                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">Companies We've Worked With</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto text-lg">From early-stage startups to Fortune 500 enterprises, we help teams ship AI that works.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #4f46e5;">NX</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">NovaTech</h3>
+                        <p class="text-xs text-slate-500 mt-1">Enterprise SaaS</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #0891b2;">AP</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">Apex Robotics</h3>
+                        <p class="text-xs text-slate-500 mt-1">Industrial Automation</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #059669;">CL</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">Clearpath Health</h3>
+                        <p class="text-xs text-slate-500 mt-1">Healthcare Technology</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #d97706;">VT</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">Vertex Labs</h3>
+                        <p class="text-xs text-slate-500 mt-1">Fintech</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #7c3aed;">SQ</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">Synapse AI</h3>
+                        <p class="text-xs text-slate-500 mt-1">AI Infrastructure</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #e11d48;">OB</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">Orbit Media</h3>
+                        <p class="text-xs text-slate-500 mt-1">Digital Media</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #1d4ed8;">PK</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">Peakform</h3>
+                        <p class="text-xs text-slate-500 mt-1">Developer Tools</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #65a30d;">TF</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">TerraFlow</h3>
+                        <p class="text-xs text-slate-500 mt-1">Climate Tech</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#475569 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-4xl lg:text-6xl font-serif mb-8">Ready to Put AI <br><span class="text-blue-400">to Work?</span></h2>
+            <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">Whether you're exploring your first AI use case or scaling agentic systems across your organization, we'd love to hear from you.</p>
+
+            <a href="mailto:svproductconsulting@gmail.com" class="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                svproductconsulting@gmail.com
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-20 pb-10 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">SV</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900">Product Consulting</span>
+                </div>
+                <div class="flex gap-10 text-sm font-bold text-slate-400">
+                    <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+                    <a href="#process" class="hover:text-blue-600 transition-colors">Process</a>
+                    <a href="#clients" class="hover:text-blue-600 transition-colors">Clients</a>
+                </div>
+            </div>
+            <p class="text-center text-slate-400 text-xs font-medium">&copy; 2026 SV Product Consulting Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
