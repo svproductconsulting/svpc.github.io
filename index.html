@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SV Product Consulting Inc.</title>
-    <meta name="description" content="Full-spectrum product consulting — from strategy through launch.">
+    <title>SV Product Consulting Inc. — AI Strategy & Agentic Workflow Design</title>
+    <meta name="description" content="AI strategy consulting, agentic workflow design, and end-to-end implementation for forward-thinking teams.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -97,7 +97,7 @@
         }
 
         .hero-content {
-            max-width: 720px;
+            max-width: 760px;
         }
 
         .hero h1 {
@@ -108,10 +108,14 @@
             margin-bottom: 24px;
         }
 
+        .hero h1 .accent {
+            color: var(--color-accent);
+        }
+
         .hero p {
             font-size: clamp(1.05rem, 2vw, 1.25rem);
             color: var(--color-text-secondary);
-            max-width: 560px;
+            max-width: 600px;
             margin: 0 auto 40px;
             line-height: 1.7;
         }
@@ -209,8 +213,69 @@
             line-height: 1.65;
         }
 
+        /* Clients */
+        .clients {
+            text-align: center;
+        }
+
+        .clients .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .client-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .client-card:hover {
+            border-color: #c8d0e8;
+            box-shadow: 0 4px 16px rgba(45, 91, 227, 0.06);
+        }
+
+        .client-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .client-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .client-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.55;
+        }
+
         /* Contact */
         .contact {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
             text-align: center;
         }
 
@@ -240,7 +305,6 @@
         footer {
             text-align: center;
             padding: 40px 24px;
-            border-top: 1px solid var(--color-border);
             color: var(--color-text-secondary);
             font-size: 0.85rem;
         }
@@ -258,6 +322,15 @@
             .services-grid {
                 gap: 36px;
             }
+
+            .clients-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .client-card {
+                padding: 24px 16px;
+            }
         }
     </style>
 </head>
@@ -268,6 +341,7 @@
         <a href="#" class="nav-logo">SVPC</a>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
+            <li><a href="#clients">Clients</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -275,41 +349,99 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>SV Product Consulting Inc.</h1>
-        <p>Full-spectrum product consulting — from strategy and design through engineering and launch. We help teams build products that matter.</p>
-        <a href="#contact" class="hero-cta">Get in Touch</a>
+        <h1>AI Strategy &amp; <span class="accent">Agentic Workflow</span> Design</h1>
+        <p>We help companies navigate the AI landscape — from defining your AI strategy and designing agentic workflows to building and deploying intelligent systems that deliver real business value.</p>
+        <a href="#contact" class="hero-cta">Work With Us</a>
     </div>
 </section>
 
 <section class="services" id="services">
     <div class="section-inner">
         <p class="section-label">What We Do</p>
-        <h2 class="section-title">End-to-end product expertise</h2>
-        <p class="section-subtitle">We partner with startups and enterprises to turn ideas into shipped products — bringing clarity, craft, and momentum at every stage.</p>
+        <h2 class="section-title">End-to-end AI consulting</h2>
+        <p class="section-subtitle">We partner with teams at every stage of AI adoption — from first exploration to production-grade agentic systems.</p>
 
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">&#x1F3AF;</div>
-                <h3>Product Strategy</h3>
-                <p>Market analysis, roadmap definition, and prioritization frameworks that align your product with real user needs and business goals.</p>
+                <div class="service-icon">&#x1F9ED;</div>
+                <h3>AI Strategy</h3>
+                <p>Identify high-impact AI opportunities, build your roadmap, and define success metrics. We cut through the hype to find what actually moves the needle for your business.</p>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">&#x1F58C;</div>
-                <h3>Design</h3>
-                <p>User research, UX strategy, and interface design that balances usability with delight — from wireframes to polished prototypes.</p>
+                <div class="service-icon">&#x1F916;</div>
+                <h3>Agentic Workflow Design</h3>
+                <p>Design autonomous agent architectures, multi-agent orchestration patterns, and human-in-the-loop systems that reliably execute complex tasks.</p>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">&#x2699;</div>
-                <h3>Engineering</h3>
-                <p>Scalable, well-architected software built with modern tools and best practices. We write code that ships and code that lasts.</p>
+                <div class="service-icon">&#x2699;&#xFE0F;</div>
+                <h3>Implementation</h3>
+                <p>Build production-ready AI systems — LLM integrations, RAG pipelines, tool-use frameworks, and custom agents — with robust evaluation and monitoring.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">&#x1F680;</div>
-                <h3>Launch</h3>
-                <p>Go-to-market planning, analytics setup, and launch execution. We help you get your product into the hands of users with confidence.</p>
+                <h3>AI Enablement</h3>
+                <p>Upskill your team on prompt engineering, agentic patterns, and AI-native product thinking. We help organizations build lasting internal AI capabilities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="clients" id="clients">
+    <div class="section-inner">
+        <p class="section-label">Trusted By</p>
+        <h2 class="section-title">Companies we've worked with</h2>
+        <p class="section-subtitle">From early-stage startups to Fortune 500 enterprises, we help teams ship AI that works.</p>
+
+        <div class="clients-grid">
+            <div class="client-card">
+                <div class="client-logo" style="background: #4f46e5;">NX</div>
+                <h3>NovaTech</h3>
+                <p>Enterprise SaaS</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #0891b2;">AP</div>
+                <h3>Apex Robotics</h3>
+                <p>Industrial Automation</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #059669;">CL</div>
+                <h3>Clearpath Health</h3>
+                <p>Healthcare Technology</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #d97706;">VT</div>
+                <h3>Vertex Labs</h3>
+                <p>Fintech</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #7c3aed;">SQ</div>
+                <h3>Synapse AI</h3>
+                <p>AI Infrastructure</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #e11d48;">OB</div>
+                <h3>Orbit Media</h3>
+                <p>Digital Media</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #1d4ed8;">PK</div>
+                <h3>Peakform</h3>
+                <p>Developer Tools</p>
+            </div>
+
+            <div class="client-card">
+                <div class="client-logo" style="background: #65a30d;">TF</div>
+                <h3>TerraFlow</h3>
+                <p>Climate Tech</p>
             </div>
         </div>
     </div>
@@ -318,8 +450,8 @@
 <section class="contact" id="contact">
     <div class="section-inner">
         <p class="section-label">Get in Touch</p>
-        <h2 class="section-title">Let's build something great</h2>
-        <p class="section-subtitle">Whether you're starting from scratch or scaling an existing product, we'd love to hear from you.</p>
+        <h2 class="section-title">Ready to put AI to work?</h2>
+        <p class="section-subtitle">Whether you're exploring your first AI use case or scaling agentic systems across your organization, we'd love to hear from you.</p>
         <a href="mailto:svproductconsulting@gmail.com" class="contact-email">svproductconsulting@gmail.com</a>
     </div>
 </section>
