@@ -2,128 +2,143 @@
   image: img/aeroportai.jpg
   category: Aviation Tech
   description: >
-    AI-driven airport operations platform. We helped scope their
-    agent architecture for real-time flight disruption management,
-    getting them from concept to working prototype in weeks.
+    AI-powered airside operations platform that uses computer vision
+    and deep learning to optimize aircraft turnaround times, detect
+    apron risks, and monitor ground handling in real time.
 
 - name: Autometrics
   image: img/autometrics.jpg
-  category: Automotive Analytics
+  category: Manufacturing AI
   description: >
-    Data analytics for used car dealerships. We designed their
-    AI pricing engine and inventory prediction system, helping
-    a small team compete with much larger players.
+    Intelligent process monitoring for advanced manufacturing.
+    The X-Sigma platform uses dual-scale AI/ML to detect
+    quality deviations in real time on the shop floor, reducing
+    scrap and rework for welding and additive manufacturing.
 
 - name: BetterCart Analytics
   image: img/bettercartanalytics.jpg
-  category: E-Commerce
+  category: Grocery Intelligence
   description: >
-    Shopping analytics startup optimizing cart conversion.
-    We built their recommendation agents and helped them
-    integrate LLM-powered product discovery on a lean budget.
+    Canada's largest grocery price database, providing price
+    analytics, promotion tracking, and assortment insights
+    to help CPG companies and retailers make data-driven
+    pricing and competitive strategy decisions.
 
 - name: DeepSight
   image: img/deepsight.jpg
-  category: Computer Vision
+  category: Industrial AR / AI
   description: >
-    Visual inspection platform for manufacturing QA.
-    We architected their multi-model pipeline and helped
-    the founding team prioritize which CV use cases to
-    tackle first for maximum customer impact.
+    AI and augmented reality platform for frontline knowledge
+    transfer in manufacturing. Captures tribal knowledge from
+    experts, turns it into interactive AR training guides, and
+    reduces onboarding time by up to 60%.
 
-- name: Fairly AI
+- name: Asenion (formerly Fairly AI)
   image: img/fairlyai.jpg
-  category: Responsible AI
+  category: AI Governance
   description: >
-    AI fairness and bias detection platform. We helped them
-    design their evaluation framework and build automated
-    audit agents that became the core of their product.
+    End-to-end AI governance, risk, and compliance platform.
+    Helps enterprises manage AI security and legal risks,
+    achieve audit readiness for EU AI Act and ISO 42001,
+    and deploy AI safely. Named a major player in the IDC
+    MarketScape for AI Governance Platforms.
 
 - name: FormicAI
   image: img/formicai.jpg
-  category: Process Automation
+  category: Explainable AI
   description: >
-    Intelligent document processing for back-office workflows.
-    We designed their agentic extraction pipeline and helped
-    the team ship a production-ready MVP in under 8 weeks.
+    Trustworthy, explainable AI for regulated and high-security
+    sectors. Their engine provides sentence-level citations to
+    source documents, multimodal semantic search across millions
+    of files, and secure on-premise deployment for legal,
+    government, and finance use cases.
 
 - name: Genie AI Now
   image: img/genieainow.jpg
-  category: AI Assistants
+  category: HealthTech
   description: >
-    Conversational AI startup building domain-specific assistants.
-    We helped them design multi-turn agent architectures and
-    a prompt management system their small team could maintain.
+    AI-powered patient communication and scheduling platform
+    for Canadian clinics. Automates 24/7 call answering,
+    intelligent appointment booking, and front-office workflows
+    with deep PMS integrations like ClearDent and OSCAR Pro.
 
 - name: Glyph Platforms
   image: img/glyphplatforms.jpg
-  category: Content Platform
+  category: Augmented Reality
   description: >
-    AI-native content creation platform. We helped define their
-    AI product strategy, designed the generation pipeline, and
-    paired with their engineers to get it shipped.
+    Augmented reality platform that turns any physical surface
+    into a digital interface. Enables showrooms and retailers
+    to display infinite product selections — textures, colors,
+    and materials — through AR, with real-time collaboration
+    built in.
 
 - name: Leni
   image: img/leni.jpg
   category: PropTech
   description: >
-    AI-powered property management assistant. We scoped their
-    agentic workflow for tenant communications and maintenance
-    coordination, cutting their support load significantly.
+    AI super agent platform for commercial real estate. Provides
+    AI analyst teammates for portfolio management, acquisitions
+    underwriting, vendor auditing, and market feasibility —
+    integrating directly with Yardi and Entrata to deliver
+    real-time insights for multifamily operators.
 
 - name: Prochista
   image: img/prochista.jpg
-  category: Biotech
+  category: IT Infrastructure
   description: >
-    Biotech startup using AI for molecular analysis.
-    We helped them evaluate LLM integration opportunities
-    and built a RAG system over their research corpus.
+    AI companion for IT infrastructure and data center
+    management (DCIM). Offers smart data integration,
+    AI-driven infrastructure analytics and cybersecurity 
+    services to help enterprises manage data center 
+    operations efficiently.
 
 - name: REI Power
   image: img/reipower.jpg
   category: Clean Energy
   description: >
-    Renewable energy analytics startup. We designed their
-    predictive maintenance agents for solar installations,
-    helping a 4-person team deliver enterprise-grade insights.
+    Energy management company for commercial buildings.
+    Provides energy audits, building commissioning, and an
+    AI-based platform that identifies operational energy
+    reduction opportunities.
 
 - name: The Talent Games
   image: img/thetalentgames.jpg
   category: HR Tech
   description: >
-    Gamified talent assessment platform. We helped them integrate
-    AI-powered candidate evaluation and designed agent workflows
-    that dramatically reduced time-to-hire for their customers.
+    An AI-powered gamified talent solutions platform for
+    recruitment and development. Uses predictive analytics
+    and science-backed gamified assessments for graduate,
+    large-volume, and end-to-end hiring.
 
 - name: Tracker Networks
   image: img/trackernetworks.jpg
-  category: IoT / Logistics
+  category: GRC / Risk Management
   description: >
-    IoT tracking platform for fleet and asset management.
-    We built their anomaly detection agents and real-time
-    alerting system on a tight startup budget.
+    Enterprise risk, compliance, and strategy management
+    platform. Their Essential GRC suite covers ERM,
+    compliance, ESG reporting, and strategic planning.
 
 - name: Untangle Money
   image: img/untanglemoney.jpg
   category: Fintech
   description: >
-    Financial planning platform focused on closing the gender
-    wealth gap. We implemented their AI-powered financial
-    advisor agent, making expert guidance accessible at scale.
+    Personal financial planning platform designed for women.
+    Helps users build actionable money plans that combine
+    day-to-day budgeting with retirement planning through
+    self-serve and expert-guided sessions.
 
-- name: VL
+- name: ventureLAB
   image: img/vL.jpg
-  category: Enterprise Tools
+  category: Tech Incubator
   description: >
-    Workflow automation startup for distributed teams.
-    We helped them identify their highest-ROI AI features
-    and designed the agent system that became their core
-    product differentiator.
+    Canada's leading global founder community for hardware
+    technology and enterprise software companies.
 
 - name: Woodrill
   image: img/woodrill.jpg
-  category: MarTech
+  category: AgTech
   description: >
-    Marketing analytics platform for growth-stage startups.
-    We built their AI content optimization agents and helped
-    the team set up evaluation frameworks to iterate fast.
+    Full-service crop input supply and grain elevator business
+    serving the farming community in central southern Ontario.
+    Provides seed, fertilizer, crop protection, and grain
+    services backed by Certified Crop Advisors.
