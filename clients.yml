@@ -1,0 +1,129 @@
+- name: Aeroport AI
+  image: img/aeroportai.jpg
+  category: Aviation Tech
+  description: >
+    AI-driven airport operations platform. We helped scope their
+    agent architecture for real-time flight disruption management,
+    getting them from concept to working prototype in weeks.
+
+- name: Autometrics
+  image: img/autometrics.jpg
+  category: Automotive Analytics
+  description: >
+    Data analytics for used car dealerships. We designed their
+    AI pricing engine and inventory prediction system, helping
+    a small team compete with much larger players.
+
+- name: BetterCart Analytics
+  image: img/bettercartanalytics.jpg
+  category: E-Commerce
+  description: >
+    Shopping analytics startup optimizing cart conversion.
+    We built their recommendation agents and helped them
+    integrate LLM-powered product discovery on a lean budget.
+
+- name: DeepSight
+  image: img/deepsight.jpg
+  category: Computer Vision
+  description: >
+    Visual inspection platform for manufacturing QA.
+    We architected their multi-model pipeline and helped
+    the founding team prioritize which CV use cases to
+    tackle first for maximum customer impact.
+
+- name: Fairly AI
+  image: img/fairlyai.jpg
+  category: Responsible AI
+  description: >
+    AI fairness and bias detection platform. We helped them
+    design their evaluation framework and build automated
+    audit agents that became the core of their product.
+
+- name: FormicAI
+  image: img/formicai.jpg
+  category: Process Automation
+  description: >
+    Intelligent document processing for back-office workflows.
+    We designed their agentic extraction pipeline and helped
+    the team ship a production-ready MVP in under 8 weeks.
+
+- name: Genie AI Now
+  image: img/genieainow.jpg
+  category: AI Assistants
+  description: >
+    Conversational AI startup building domain-specific assistants.
+    We helped them design multi-turn agent architectures and
+    a prompt management system their small team could maintain.
+
+- name: Glyph Platforms
+  image: img/glyphplatforms.jpg
+  category: Content Platform
+  description: >
+    AI-native content creation platform. We helped define their
+    AI product strategy, designed the generation pipeline, and
+    paired with their engineers to get it shipped.
+
+- name: Leni
+  image: img/leni.jpg
+  category: PropTech
+  description: >
+    AI-powered property management assistant. We scoped their
+    agentic workflow for tenant communications and maintenance
+    coordination, cutting their support load significantly.
+
+- name: Prochista
+  image: img/prochista.jpg
+  category: Biotech
+  description: >
+    Biotech startup using AI for molecular analysis.
+    We helped them evaluate LLM integration opportunities
+    and built a RAG system over their research corpus.
+
+- name: REI Power
+  image: img/reipower.jpg
+  category: Clean Energy
+  description: >
+    Renewable energy analytics startup. We designed their
+    predictive maintenance agents for solar installations,
+    helping a 4-person team deliver enterprise-grade insights.
+
+- name: The Talent Games
+  image: img/thetalentgames.jpg
+  category: HR Tech
+  description: >
+    Gamified talent assessment platform. We helped them integrate
+    AI-powered candidate evaluation and designed agent workflows
+    that dramatically reduced time-to-hire for their customers.
+
+- name: Tracker Networks
+  image: img/trackernetworks.jpg
+  category: IoT / Logistics
+  description: >
+    IoT tracking platform for fleet and asset management.
+    We built their anomaly detection agents and real-time
+    alerting system on a tight startup budget.
+
+- name: Untangle Money
+  image: img/untanglemoney.jpg
+  category: Fintech
+  description: >
+    Financial planning platform focused on closing the gender
+    wealth gap. We implemented their AI-powered financial
+    advisor agent, making expert guidance accessible at scale.
+
+- name: VL
+  image: img/vL.jpg
+  category: Enterprise Tools
+  description: >
+    Workflow automation startup for distributed teams.
+    We helped them identify their highest-ROI AI features
+    and designed the agent system that became their core
+    product differentiator.
+
+- name: Woodrill
+  image: img/woodrill.jpg
+  category: MarTech
+  description: >
+    Marketing analytics platform for growth-stage startups.
+    We built their AI content optimization agents and helped
+    the team set up evaluation frameworks to iterate fast.

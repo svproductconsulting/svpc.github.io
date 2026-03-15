@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SV Product Consulting Inc. — AI Strategy & Agentic Workflow Design</title>
-    <meta name="description" content="AI strategy consulting, agentic workflow design, and end-to-end implementation for forward-thinking teams.">
+    <meta name="description" content="Fractional AI strategy for startups. Expert guidance on agentic workflows, LLM integration, and AI product thinking — without the enterprise price tag.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
 
@@ -66,6 +67,82 @@
             width: 2px;
             background: #e2e8f0;
         }
+
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding: 8px 0 16px;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-card {
+            flex: 0 0 340px;
+            scroll-snap-align: start;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .carousel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.12);
+            border-color: #3b82f640;
+        }
+
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #475569;
+        }
+
+        .carousel-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: #3b82f6;
+            width: 24px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body class="selection:bg-blue-100 selection:text-blue-900">
@@ -80,7 +157,7 @@
                     </div>
                     <div class="flex flex-col">
                         <span class="text-lg font-bold leading-none tracking-tight text-slate-900">Product Consulting</span>
-                        <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1">AI & Strategy Labs</span>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1">AI Strategy for Startups</span>
                     </div>
                 </div>
 
@@ -89,7 +166,7 @@
                     <a href="#process" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Process</a>
                     <a href="#clients" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Clients</a>
                     <a href="#contact" class="bg-blue-600 text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-blue-700 transition-all shadow-md shadow-blue-200">
-                        Work With Us
+                        Let's Talk
                     </a>
                 </div>
 
@@ -112,44 +189,44 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
                     </span>
-                    <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Specializing in Agentic AI Systems</span>
+                    <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">Fractional AI expertise for startups</span>
                 </div>
 
                 <h1 class="text-5xl lg:text-7xl font-serif leading-[1.1] text-slate-900 mb-8">
-                    AI Strategy & <br>
-                    <span class="gradient-text">Agentic Workflow Design.</span>
+                    Your Startup's <br>
+                    <span class="gradient-text">AI Sounding Board.</span>
                 </h1>
 
                 <p class="text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-                    We help companies navigate the AI landscape — from defining your AI strategy and designing agentic workflows to building and deploying intelligent systems that deliver real business value.
+                    You don't need a six-figure AI consultancy. You need an expert who gets startups — someone to help you figure out where AI actually fits, design the right workflows, and ship without burning runway.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <a href="#contact" class="w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl flex items-center justify-center gap-3">
-                        Work With Us
+                        Let's Talk
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
                     <a href="#services" class="w-full sm:w-auto px-10 py-5 border-2 border-slate-200 text-slate-700 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center">
-                        Explore Services
+                        How We Help
                     </a>
                 </div>
 
                 <div class="mt-20 pt-10 border-t border-slate-100 flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
                     <div class="font-bold text-slate-400 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"/></svg>
-                        STRATEGY-FIRST
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        STARTUP-FRIENDLY PRICING
                     </div>
                     <div class="font-bold text-slate-400 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
                         AI-NATIVE
                     </div>
                     <div class="font-bold text-slate-400 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
-                        DATA-DRIVEN
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                        FAST & LEAN
                     </div>
                     <div class="font-bold text-slate-400 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-                        EXECUTION-PROVEN
+                        HANDS-ON
                     </div>
                 </div>
             </div>
@@ -161,49 +238,49 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-20">
                 <div class="inline-block px-3 py-1 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest mb-6">What We Do</div>
-                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">End-to-End AI Consulting</h2>
-                <p class="text-slate-500 max-w-xl text-lg">We partner with teams at every stage of AI adoption — from first exploration to production-grade agentic systems.</p>
+                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">AI Expertise, Without the Overhead</h2>
+                <p class="text-slate-500 max-w-xl text-lg">Think of us as your fractional AI team — senior guidance on strategy, architecture, and implementation at a fraction of the cost of a full-time hire.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Service 1 -->
-                <div class="p-8 rounded-3xl bg-white card-glow group">
+                <div class="p-8 rounded-3xl bg-white hover:bg-slate-900 card-glow group transition-colors duration-300">
                     <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"/></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-3">AI Strategy</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Identify high-impact AI opportunities, build your roadmap, and define success metrics. We cut through the hype to find what actually moves the needle.</p>
-                    <div class="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Planning & Vision</div>
+                    <h3 class="text-lg font-bold mb-3 group-hover:text-white transition-colors">AI Strategy</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 group-hover:text-slate-300 transition-colors">Not sure where AI fits in your product? We help you cut through the hype, identify the highest-leverage opportunities, and build a roadmap that respects your budget.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 group-hover:text-blue-400 uppercase tracking-widest transition-colors">Planning & Vision</div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="p-8 rounded-3xl bg-slate-900 card-glow text-white">
-                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+                <div class="p-8 rounded-3xl bg-white hover:bg-slate-900 card-glow group transition-colors duration-300">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-3">Agentic Workflow Design</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Design autonomous agent architectures, multi-agent orchestration patterns, and human-in-the-loop systems that reliably execute complex tasks.</p>
-                    <div class="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest">Innovation Labs</div>
+                    <h3 class="text-lg font-bold mb-3 group-hover:text-white transition-colors">Agentic Workflow Design</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 group-hover:text-slate-300 transition-colors">Design agent architectures that actually work — autonomous workflows, multi-agent orchestration, and human-in-the-loop systems scoped to what your team can build and maintain.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 group-hover:text-blue-400 uppercase tracking-widest transition-colors">Core Expertise</div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="p-8 rounded-3xl bg-white card-glow group">
+                <div class="p-8 rounded-3xl bg-white hover:bg-slate-900 card-glow group transition-colors duration-300">
                     <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.194-.14 1.743"/></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-3">Implementation</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Build production-ready AI systems — LLM integrations, RAG pipelines, tool-use frameworks, and custom agents with robust evaluation.</p>
-                    <div class="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Execution</div>
+                    <h3 class="text-lg font-bold mb-3 group-hover:text-white transition-colors">Implementation</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 group-hover:text-slate-300 transition-colors">We roll up our sleeves alongside your engineers — LLM integrations, RAG pipelines, tool-use frameworks, and custom agents. No 50-page decks, just working code.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 group-hover:text-blue-400 uppercase tracking-widest transition-colors">Execution</div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="p-8 rounded-3xl bg-white card-glow group">
+                <div class="p-8 rounded-3xl bg-white hover:bg-slate-900 card-glow group transition-colors duration-300">
                     <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-3">AI Enablement</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Upskill your team on prompt engineering, agentic patterns, and AI-native product thinking. Build lasting internal AI capabilities.</p>
-                    <div class="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Optimization</div>
+                    <h3 class="text-lg font-bold mb-3 group-hover:text-white transition-colors">Team Upskilling</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 group-hover:text-slate-300 transition-colors">Get your small team punching above its weight. We teach prompt engineering, agentic patterns, AI evaluations, and AI-native product thinking so you don't need us forever.</p>
+                    <div class="text-[11px] font-extrabold text-blue-600 group-hover:text-blue-400 uppercase tracking-widest transition-colors">Knowledge Transfer</div>
                 </div>
             </div>
         </div>
@@ -213,40 +290,40 @@
     <section id="process" class="py-24 bg-slate-50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
-                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">Our Implementation Framework</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto">A rigorous, repeatable process designed to take you from exploration to production-grade AI systems.</p>
+                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">How We Work With Startups</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Lightweight, no-nonsense engagements designed for teams that move fast and watch every dollar.</p>
             </div>
 
             <div class="max-w-4xl mx-auto space-y-4">
-                <div class="relative flex gap-12 step-line">
-                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold z-10">1</div>
+                <div class="relative flex gap-12 step-line group cursor-default">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 group-hover:bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10 transition-colors">1</div>
                     <div class="pb-12">
-                        <h4 class="text-xl font-bold mb-3">Discovery & Audit</h4>
-                        <p class="text-slate-600 leading-relaxed">We evaluate your existing workflows, data infrastructure, and team capabilities to identify where AI can create real, measurable value.</p>
+                        <h4 class="text-xl font-bold mb-3">Understand Your Context</h4>
+                        <p class="text-slate-600 leading-relaxed">We dig into your product, your users, and your constraints. What does your team look like? What's your runway? Where are you bleeding time or money that AI could fix?</p>
                     </div>
                 </div>
 
-                <div class="relative flex gap-12 step-line">
-                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold z-10">2</div>
+                <div class="relative flex gap-12 step-line group cursor-default">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 group-hover:bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10 transition-colors">2</div>
                     <div class="pb-12">
-                        <h4 class="text-xl font-bold mb-3">Strategy & Architecture</h4>
-                        <p class="text-slate-600 leading-relaxed">Design your AI roadmap with prioritized use cases, agent architectures, and integration plans aligned to business objectives.</p>
+                        <h4 class="text-xl font-bold mb-3">Prioritize Ruthlessly</h4>
+                        <p class="text-slate-600 leading-relaxed">We help you pick the one or two AI bets that will actually move the needle — not a wishlist of 20 features. You get a focused plan your team can realistically execute.</p>
                     </div>
                 </div>
 
-                <div class="relative flex gap-12 step-line">
-                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold z-10">3</div>
+                <div class="relative flex gap-12 step-line group cursor-default">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 group-hover:bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10 transition-colors">3</div>
                     <div class="pb-12">
-                        <h4 class="text-xl font-bold mb-3">Build & Deploy</h4>
-                        <p class="text-slate-600 leading-relaxed">We work alongside your engineering and product teams to implement, test, and ship AI systems — not just hand over a strategy deck.</p>
+                        <h4 class="text-xl font-bold mb-3">Build Together</h4>
+                        <p class="text-slate-600 leading-relaxed">We embed with your team — pairing with engineers, reviewing PRs, unblocking decisions. You ship faster, and your team learns as we go.</p>
                     </div>
                 </div>
 
-                <div class="relative flex gap-12">
-                    <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10">4</div>
+                <div class="relative flex gap-12 group cursor-default">
+                    <div class="flex-shrink-0 w-12 h-12 bg-slate-900 group-hover:bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10 transition-colors">4</div>
                     <div>
-                        <h4 class="text-xl font-bold mb-3">Evaluate & Iterate</h4>
-                        <p class="text-slate-600 leading-relaxed">Post-launch analysis measuring adoption, accuracy, and business impact — closing the feedback loop for continuous improvement.</p>
+                        <h4 class="text-xl font-bold mb-3">Measure & Hand Off</h4>
+                        <p class="text-slate-600 leading-relaxed">We make sure it's working, document what matters, and hand off cleanly. The goal is to make your team self-sufficient — not to create a dependency.</p>
                     </div>
                 </div>
             </div>
@@ -254,79 +331,26 @@
     </section>
 
     <!-- Clients Section -->
-    <section id="clients" class="py-24 bg-white">
+    <section id="clients" class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <div class="inline-block px-3 py-1 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest mb-6">Trusted By</div>
-                <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-6">Companies We've Worked With</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto text-lg">From early-stage startups to Fortune 500 enterprises, we help teams ship AI that works.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #4f46e5;">NX</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">NovaTech</h3>
-                        <p class="text-xs text-slate-500 mt-1">Enterprise SaaS</p>
-                    </div>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+                <div>
+                    <div class="inline-block px-3 py-1 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest mb-6">Trusted By</div>
+                    <h2 class="text-3xl lg:text-5xl font-serif text-slate-900 mb-4">Startups We've Helped</h2>
+                    <p class="text-slate-500 max-w-xl text-lg">We work with early-stage and growth-stage teams who need expert AI guidance without the enterprise overhead.</p>
                 </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #0891b2;">AP</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Apex Robotics</h3>
-                        <p class="text-xs text-slate-500 mt-1">Industrial Automation</p>
-                    </div>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #059669;">CL</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Clearpath Health</h3>
-                        <p class="text-xs text-slate-500 mt-1">Healthcare Technology</p>
-                    </div>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #d97706;">VT</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Vertex Labs</h3>
-                        <p class="text-xs text-slate-500 mt-1">Fintech</p>
-                    </div>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #7c3aed;">SQ</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Synapse AI</h3>
-                        <p class="text-xs text-slate-500 mt-1">AI Infrastructure</p>
-                    </div>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #e11d48;">OB</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Orbit Media</h3>
-                        <p class="text-xs text-slate-500 mt-1">Digital Media</p>
-                    </div>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #1d4ed8;">PK</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">Peakform</h3>
-                        <p class="text-xs text-slate-500 mt-1">Developer Tools</p>
-                    </div>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white card-glow flex flex-col items-center text-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg shadow-lg" style="background: #65a30d;">TF</div>
-                    <div>
-                        <h3 class="font-bold text-slate-900">TerraFlow</h3>
-                        <p class="text-xs text-slate-500 mt-1">Climate Tech</p>
-                    </div>
+                <div class="flex gap-3 mt-8 md:mt-0">
+                    <button id="carousel-prev" class="carousel-btn" aria-label="Previous">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+                    </button>
+                    <button id="carousel-next" class="carousel-btn" aria-label="Next">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                    </button>
                 </div>
             </div>
+
+            <div id="carousel-track" class="carousel-track"></div>
+            <div id="carousel-dots" class="carousel-dots"></div>
         </div>
     </section>
 
@@ -334,8 +358,8 @@
     <section id="contact" class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#475569 1px, transparent 1px); background-size: 24px 24px;"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h2 class="text-4xl lg:text-6xl font-serif mb-8">Ready to Put AI <br><span class="text-blue-400">to Work?</span></h2>
-            <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">Whether you're exploring your first AI use case or scaling agentic systems across your organization, we'd love to hear from you.</p>
+            <h2 class="text-4xl lg:text-6xl font-serif mb-8">Let's Figure Out <br><span class="text-blue-400">Your AI Move.</span></h2>
+            <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">No pitch decks, no long sales cycles. Just a conversation about where AI can help your startup — and an honest take on where it can't.</p>
 
             <a href="mailto:svproductconsulting@gmail.com" class="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
@@ -378,6 +402,69 @@
                 }
             });
         });
+
+        // Client Carousel — loads data from clients.yml
+        (async function () {
+            const track = document.getElementById('carousel-track');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+
+            try {
+                const res = await fetch('clients.yml');
+                const text = await res.text();
+                const clients = jsyaml.load(text);
+
+                clients.forEach(client => {
+                    const card = document.createElement('div');
+                    card.className = 'carousel-card rounded-3xl bg-white p-8 flex flex-col';
+                    card.innerHTML = `
+                        <div class="h-16 flex items-center mb-6">
+                            <img src="${client.image}" alt="${client.name}" class="max-h-full max-w-[200px] object-contain">
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">${client.name}</h3>
+                        <p class="text-[11px] font-bold text-blue-600 uppercase tracking-widest mb-4">${client.category}</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">${client.description.trim()}</p>
+                    `;
+                    track.appendChild(card);
+                });
+
+                // Dots
+                const cardWidth = 340 + 24;
+                const visibleCards = Math.floor(track.clientWidth / cardWidth) || 1;
+                const totalDots = Math.max(1, clients.length - visibleCards + 1);
+
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => {
+                        track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+
+                // Nav buttons
+                prevBtn.addEventListener('click', () => {
+                    track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                });
+
+                // Update active dot on scroll
+                track.addEventListener('scroll', () => {
+                    const index = Math.round(track.scrollLeft / cardWidth);
+                    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                        d.classList.toggle('active', i === index);
+                    });
+                });
+
+            } catch (err) {
+                console.error('Failed to load clients:', err);
+            }
+        })();
     </script>
 </body>
 </html>
